@@ -42,7 +42,7 @@ if [ $BUILD = "true" ]; then
     if [ $CLEAN = "true" ]; then
         rm -rf out/target/product/${device}
     fi
-    mka ${target} || 
+    mka ${target} || exit 1
     if [ $SIGN ]; then
         PATH=$PATH:$OUT/host/linux-x86/bin/
         if [ -f $OUT/obj/PACKAGING/target_files_intermediates/*${BUILD_UUID}*.zip ]; then
