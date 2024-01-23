@@ -25,15 +25,12 @@ if [ $BUILD = "true" ]; then
     export KBUILD_BUILD_HOST=gentoolinux
     export TARGET_UNOFFICIAL_BUILD_ID=Pig
     export KERNEL_LTO=$KERNEL_LTO
-    #export OUT_DIR=/home/pppig/out/lost/out
-    if [ -z "$BUILD_UUID" ]; then
-        export BUILD_UUID=$(uuidgen)
-    fi
     if [ $WITH_GMS = "true" ]; then
 		export WITH_GMS=true
     	export TARGET_UNOFFICIAL_BUILD_ID=Pig-Gapps
 	fi
     if [ ! -f /tmp/los_buildNumber ]; then
+      export BUILD_UUID=$(uuidgen)
       ( (
           date +%s%N
           echo $BUILD_UUID
