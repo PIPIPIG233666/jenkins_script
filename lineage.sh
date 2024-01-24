@@ -1,4 +1,6 @@
 #!/bin/bash
+# Usage: lineage.sh 20.0
+losVersion=$1
 alias ota="signed-ota_update.zip"
 alias target="signed-target_files.zip"
 
@@ -8,7 +10,7 @@ unset JDK_HOME
 unset LEX
   
 if [ $INIT = "true" ]; then
-	repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+	repo init -u https://github.com/LineageOS/android.git -b lineage-$losVersion --git-lfs
 fi
 
 if [ $SYNC = "true" ]; then
