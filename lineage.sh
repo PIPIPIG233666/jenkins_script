@@ -10,7 +10,7 @@ unset JDK_HOME
 unset LEX
   
 if [ $INIT = "true" ]; then
-	repo init -u https://github.com/LineageOS/android.git -b lineage-$losVersion --git-lfs
+    repo init -u https://github.com/LineageOS/android.git -b lineage-$losVersion --git-lfs
 fi
 
 if [ $SYNC = "true" ]; then
@@ -28,9 +28,12 @@ if [ $BUILD = "true" ]; then
     export TARGET_UNOFFICIAL_BUILD_ID=Pig
     export KERNEL_LTO=$KERNEL_LTO
     if [ $WITH_GMS = "true" ]; then
-		export WITH_GMS=true
+      export WITH_GMS=true
     	export TARGET_UNOFFICIAL_BUILD_ID=Pig-Gapps
-	fi
+    fi
+    if [ $REGENERATE_BUILD_NUMBER = "true" ]; then
+      rm -f /tmp/los_buildNumber
+    fi
     if [ ! -f /tmp/los_buildNumber ]; then
       export BUILD_UUID=$(uuidgen)
       ( (
