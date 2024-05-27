@@ -38,7 +38,7 @@ if [ $BUILD = "true" ]; then
       ) | openssl sha1 | sed -e 's/.*=//g; s/ //g' | cut -c1-10) > /tmp/los_buildNumber
     fi
     export BUILD_NUMBER=$(cat /tmp/los_buildNumber)
-    lunch lineage_${device}-${TYPE}
+    brunch ${device}
     if [ $CLEAN = "true" ]; then
         rm -rf out/target/product/${device}
     fi
