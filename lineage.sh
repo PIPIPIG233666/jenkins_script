@@ -3,11 +3,6 @@
 losVersion=$1
 alias ota="signed-ota_update.zip"
 alias target="signed-target_files.zip"
-
-unset JAVAC
-unset JAVA_HOME
-unset JDK_HOME
-unset LEX
   
 if [ $INIT = "true" ]; then
     repo init -u https://github.com/LineageOS/android.git -b lineage-$losVersion --git-lfs
