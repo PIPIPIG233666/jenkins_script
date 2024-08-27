@@ -38,6 +38,7 @@ if [ $BUILD = "true" ]; then
     fi
     export BUILD_NUMBER=$(cat /tmp/los_buildNumber)
     lunch lineage_${device}-${REL}-${TYPE}
+    mka installclean
     if [ $CLEAN = "true" ]; then
         rm -rf out/target/product/${device}
     fi
