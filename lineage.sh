@@ -1,9 +1,7 @@
 #!/bin/bash
-# Usage: lineage.sh 20.0
+# Usage: lineage.sh 21.0
 # current REL: ap2a
 losVersion=$1
-alias ota="signed-ota_update.zip"
-alias target="signed-target_files.zip"
   
 if [ $INIT = "true" ]; then
     repo init -u https://github.com/LineageOS/android.git -b lineage-$losVersion --git-lfs
